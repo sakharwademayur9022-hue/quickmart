@@ -1,2 +1,2 @@
 # quickmart
-Exported from Caffeine project: QuickMart
+Exported from Caffeine project: Marketyard
