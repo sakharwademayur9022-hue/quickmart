@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-display: "Plus Jakarta Sans";
+    --font-body: "Plus Jakarta Sans";
+    --font-mono: "JetBrains Mono";
+    --radius: 0.75rem;
+
+    --background: 0.99 0.008 280;
+    --foreground: 0.18 0.02 280;
+    --card: 1.0 0.0 0;
+    --card-foreground: 0.18 0.02 280;
+    --popover: 1.0 0.0 0;
+    --popover-foreground: 0.18 0.02 280;
+
+    --primary: 0.52 0.22 150;
+    --primary-foreground: 0.98 0.005 150;
+
+    --secondary: 0.94 0.02 280;
+    --secondary-foreground: 0.3 0.02 280;
+    --muted: 0.94 0.02 280;
+    --muted-foreground: 0.5 0.015 280;
+
+    --accent: 0.68 0.18 55;
+    --accent-foreground: 0.18 0.02 55;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.98 0.005 25;
+
+    --border: 0.9 0.015 280;
+    --input: 0.9 0.015 280;
+    --ring: 0.52 0.22 150;
+
+    --chart-1: 0.52 0.22 150;
+    --chart-2: 0.68 0.18 55;
+    --chart-3: 0.65 0.18 25;
+    --chart-4: 0.6 0.16 195;
+    --chart-5: 0.55 0.22 25;
+
+    --sidebar: 0.98 0.005 280;
+    --sidebar-foreground: 0.18 0.02 280;
+    --sidebar-primary: 0.52 0.22 150;
+    --sidebar-primary-foreground: 0.98 0.005 150;
+    --sidebar-accent: 0.94 0.02 280;
+    --sidebar-accent-foreground: 0.3 0.02 280;
+    --sidebar-border: 0.9 0.015 280;
+    --sidebar-ring: 0.52 0.22 150;
+  }
+
+  .dark {
+    --background: 0.14 0.015 50;
+    --foreground: 0.92 0.01 60;
+    --card: 0.18 0.018 50;
+    --card-foreground: 0.92 0.01 60;
+    --popover: 0.18 0.018 50;
+    --popover-foreground: 0.92 0.01 60;
+
+    --primary: 0.65 0.22 150;
+    --primary-foreground: 0.98 0.005 150;
+
+    --secondary: 0.22 0.02 50;
+    --secondary-foreground: 0.82 0.01 60;
+    --muted: 0.22 0.02 50;
+    --muted-foreground: 0.52 0.012 55;
+
+    --accent: 0.72 0.17 55;
+    --accent-foreground: 0.14 0.015 55;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.92 0.01 25;
+
+    --border: 0.28 0.02 50;
+    --input: 0.28 0.02 50;
+    --ring: 0.65 0.22 150;
+
+    --chart-1: 0.65 0.22 150;
+    --chart-2: 0.72 0.17 55;
+    --chart-3: 0.6 0.18 25;
+    --chart-4: 0.58 0.14 195;
+    --chart-5: 0.55 0.22 25;
+
+    --sidebar: 0.18 0.018 50;
+    --sidebar-foreground: 0.92 0.01 60;
+    --sidebar-primary: 0.65 0.22 150;
+    --sidebar-primary-foreground: 0.98 0.005 150;
+    --sidebar-accent: 0.22 0.02 50;
+    --sidebar-accent-foreground: 0.82 0.01 60;
+    --sidebar-border: 0.28 0.02 50;
+    --sidebar-ring: 0.65 0.22 150;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 rounded-full font-semibold text-sm bg-primary text-primary-foreground hover:opacity-90 transition-smooth;
+  }
+
+  .btn-secondary {
+    @apply px-4 py-2 rounded-lg font-medium text-sm bg-secondary text-secondary-foreground hover:bg-muted transition-smooth;
+  }
+
+  .card-elevated {
+    @apply bg-card rounded-xl shadow-md hover:shadow-lg transition-smooth;
+  }
+
+  .pulse-cart {
+    @apply animate-pulse;
+  }
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/assets/fonts/PlusJakartaSans.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/assets/fonts/JetBrainsMono.woff2") format("woff2");
+  font-display: swap;
+}

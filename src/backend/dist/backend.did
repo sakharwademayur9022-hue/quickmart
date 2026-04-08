@@ -1,0 +1,116 @@
+type UserProfile = 
+ record {
+   createdAt: Timestamp;
+   email: text;
+   id: UserId;
+   isAdmin: bool;
+   name: text;
+   phone: text;
+   savedAddresses: vec Address;
+ };
+type UserId = principal;
+type UpdateProfileRequest = 
+ record {
+   email: text;
+   name: text;
+   phone: text;
+   savedAddresses: vec Address;
+ };
+type Timestamp = int;
+type ProductId = nat;
+type Product = 
+ record {
+   category: Category;
+   createdAt: Timestamp;
+   description: text;
+   id: ProductId;
+   imageId: text;
+   inStock: bool;
+   name: text;
+   price: nat;
+ };
+type PlaceOrderRequest = record {deliveryAddress: Address;};
+type OrderView = 
+ record {
+   createdAt: Timestamp;
+   deliveryAddress: Address;
+   deliveryFee: nat;
+   estimatedDelivery: Timestamp;
+   id: OrderId;
+   items: vec OrderItem;
+   status: OrderStatus;
+   totalAmount: nat;
+   userId: UserId;
+ };
+type OrderStatus = 
+ variant {
+   Confirmed;
+   Delivered;
+   InTransit;
+ };
+type OrderItem = 
+ record {
+   name: text;
+   price: nat;
+   productId: ProductId;
+   quantity: nat;
+ };
+type OrderId = nat;
+type CreateProductRequest = 
+ record {
+   category: Category;
+   description: text;
+   imageId: text;
+   inStock: bool;
+   name: text;
+   price: nat;
+ };
+type Category = 
+ variant {
+   Bakery;
+   Beverages;
+   Dairy;
+   Fruits;
+   Household;
+   Meat;
+   PersonalCare;
+   Snacks;
+   Vegetables;
+ };
+type CartItemView = 
+ record {
+   productId: ProductId;
+   quantity: nat;
+ };
+type Address = 
+ record {
+   city: text;
+   line1: text;
+   line2: text;
+   pincode: text;
+   tag: text;
+ };
+service : {
+  addToCart: (productId: ProductId, quantity: nat) -> ();
+  clearCart: () -> ();
+  createProduct: (req: CreateProductRequest) -> (Product);
+  deleteProduct: (id: ProductId) -> (bool);
+  getAllOrders: () -> (vec OrderView) query;
+  getAllProducts: () -> (vec Product) query;
+  getCart: () -> (vec CartItemView) query;
+  getMyOrders: () -> (vec OrderView) query;
+  getOrder: (orderId: OrderId) -> (opt OrderView) query;
+  getProduct: (id: ProductId) -> (opt Product) query;
+  getProductsByCategory: (category: Category) -> (vec Product) query;
+  getProfile: () -> (opt UserProfile);
+  isAdmin: () -> (bool) query;
+  placeOrder: (req: PlaceOrderRequest) -> (OrderView);
+  removeFromCart: (productId: ProductId) -> ();
+  searchProducts: (name: text) -> (vec Product) query;
+  seedProducts: () -> ();
+  setAdminStatus: (target: UserId, adminStatus: bool) -> ();
+  updateOrderStatus: (orderId: OrderId, status: OrderStatus) ->
+   (opt OrderView);
+  updateProduct: (id: ProductId, req: CreateProductRequest) -> (opt Product);
+  updateProfile: (req: UpdateProfileRequest) -> (UserProfile);
+}

@@ -1,0 +1,25 @@
+{
+  "overview": "A quick commerce grocery delivery app inspired by Blinkit and Zepto. Browse products by category, search and filter, manage your cart, place orders, track delivery status, and manage your account. Includes a basic admin dashboard for product and order management.",
+  "features": [
+    "Product catalog with categories and search",
+    "Shopping cart with quantity management",
+    "User authentication and profiles",
+    "Checkout with delivery address",
+    "Order tracking with live status updates",
+    "Order history and reorder",
+    "Admin dashboard for products and orders",
+    "Image storage for product photos",
+    "Mobile-first responsive layout"
+  ],
+  "category": "e-commerce",
+  "tags": [
+    "grocery",
+    "delivery",
+    "quick-commerce",
+    "ecommerce",
+    "shopping",
+    "cart",
+    "orders"
+  ],
+  "last_updated": "2026-04-08T22:30:19.946Z"
+}
